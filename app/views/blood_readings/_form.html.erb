@@ -1,0 +1,24 @@
+<%= form_with(model: blood_reading, local: true) do |form| %>
+  <% if blood_reading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blood_reading.errors.count, "error") %> prohibited this blood_reading from being saved:</h2>
+
+      <ul>
+        <% blood_reading.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="form-group">
+    <h4><%= form.label :blood_glucose_level, "Glucose level (mg/dL)" %></h4>
+    <%= form.text_field :blood_glucose_level, class: 'form-control', autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: 'btn btn-success' %>
+    <%= link_to "Cancel", :back, class: 'btn btn-default'  %>
+  </div>
+<% end %>

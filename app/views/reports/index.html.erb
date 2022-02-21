@@ -1,0 +1,32 @@
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#date_start" ).datepicker();
+  });
+    $(function() {
+    $( "#date_end" ).datepicker();
+  });
+  </script>
+
+<a href="/reports/daily_report"> daily Report</a><br/>
+Or
+<br/>
+<a href="/reports/monthly_report"> Monthly Report</a>
+<br/>
+<or>
+Or
+<br/>
+<a>month to date report</a>
+<br>
+
+<%= form_tag("month_on_report", :method => "get") do %>
+   <div>Selected  Date: <input type="text" name="date_end" id="date_end"></div>
+  
+   <%= submit_tag("submit") %>
+<% end %>
+

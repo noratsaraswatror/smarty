@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h4>
+  <strong>Blood Glucose Level Reading:</strong>
+  <%= @blood_reading.blood_glucose_level %> (mg/dL)
+</h4>
+<h4>Date recorded:
+  <%= @blood_reading.created_at.strftime("%A, %B %d, %Y") %>
+</h4>
+<br/>
+
+<%= link_to 'new entry', new_blood_reading_path %> |
+<%= link_to 'Back', blood_readings_path %>

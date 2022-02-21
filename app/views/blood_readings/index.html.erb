@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Blood Readings</h1>
+<%= link_to 'Enter new blood glucose reading', new_blood_reading_path, class: 'btn btn-success' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blood glucose level</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blood_readings.each do |blood_reading| %>
+      <tr>
+        <td><%= blood_reading.blood_glucose_level %></td>
+        <td><%= blood_reading.user_id %></td>
+        <td><%#= link_to 'Show', blood_reading %></td>
+        <td><%#= link_to 'Edit', edit_blood_reading_path(blood_reading) %></td>
+        <td><%#= link_to 'Destroy', blood_reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

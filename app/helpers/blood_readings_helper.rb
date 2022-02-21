@@ -1,0 +1,2 @@
+module BloodReadingsHelper
+end
