@@ -11,8 +11,8 @@ class ReportsController < ApplicationController
   	@min_glucose = min_glucose(blood_readings,start_date,end_date)
   end
   def monthly_report
-  	start_date = Date.today.beginning_of_month
-  	end_date = Date.today.end_of_month
+  	start_date = Date.today.last_month.beginning_of_month
+  	end_date = Date.today.last_month.end_of_month
   	blood_readings = current_user.blood_readings
   	@average_glucose = average_glucose(blood_readings,start_date,end_date)
   	@max_glucose = max_glucose(blood_readings,start_date,end_date)
@@ -20,9 +20,10 @@ class ReportsController < ApplicationController
   end
   def month_on_report
   	start_date = Date.today.beginning_of_month
-  	puts Date.strptime(params[:date_end], "%d/%m/%Y")
+  	end_date =  Date.strptime(params[:date_end].to_s, "%m/%d/%Y")
+  	##Date.strptime(str,"%d-%m-%Y")
   	#puts DatesFromString.new params[:date_end]
-  	end_date = params[:date_end].to_date
+  	#end_date = params[:date_end].to_date
   	blood_readings = current_user.blood_readings
   	@average_glucose = average_glucose(blood_readings,start_date,end_date)
   	@max_glucose = max_glucose(blood_readings,start_date,end_date)
